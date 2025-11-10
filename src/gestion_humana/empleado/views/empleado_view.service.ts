@@ -51,6 +51,8 @@ export class EmpleadoViewService {
         'correo_jefe',
         'es_jefe',
         'id_usuario',
+        'id_rol',
+        'nombre_rol',
         'id_jefe_grupo_colaborativo',
         'jefe_grupo_colaborativo',
         'id_grupo_colaborativo',

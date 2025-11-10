@@ -42,4 +42,15 @@ export class DetalleCompraService {
     const updated = Object.assign(register, updateDto);
     return await this.detalleCompraRepository.save(updated);
   }
+
+  // Eliminar un detalle de compra (producto)
+  async delete(id_detalle_compra: number) {
+    const result = await this.detalleCompraRepository.delete(id_detalle_compra);
+
+    if (result.affected === 0) {
+      return { message: `Producto con id ${id_detalle_compra} no encontrado` };
+    }
+
+    return { message: `Producto con id ${id_detalle_compra} eliminado` };
+  }
 }

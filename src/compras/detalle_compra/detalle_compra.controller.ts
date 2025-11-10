@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { DetalleCompraService } from './detalle_compra.service';
 import { DetalleCompra } from './detalle_compra.entity';
 import { CreateDetalleCompraDto } from './dto/create-detalle-compra.dto';
@@ -31,5 +39,10 @@ export class DetalleCompraController {
   @Put(':id')
   update(@Param('id') id: number, @Body() updateDto: UpdateDetalleCompraDto) {
     return this.detalleCompraService.update(id, updateDto);
+  }
+
+  @Delete(':id')
+  async deleteProducto(@Param('id') id_detalle_compra: number) {
+    return await this.detalleCompraService.delete(id_detalle_compra);
   }
 }
