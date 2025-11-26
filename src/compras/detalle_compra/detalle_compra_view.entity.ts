@@ -101,6 +101,9 @@ export class DetalleCompraView {
   @Column({ name: 'estado_compra', type: 'varchar', length: 50 })
   estado_compra: string;
 
+  @Column({ name: 'precio_total', type: 'int', nullable: true })
+  precio_total: number | null;
+
   // Fecha de la última aprobación
   @Column({ name: 'fecha_validacion_orden_compra', type: 'timestamp' })
   fecha_validacion_orden_compra: Date;

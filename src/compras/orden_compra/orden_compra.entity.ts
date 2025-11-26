@@ -23,6 +23,9 @@ export class OrdenCompra {
   @Column({ length: 50 })
   estado_compra: string;
 
+  @Column({ type: 'int', nullable: true })
+  precio_total: number | null;
+
   @Column({ nullable: true })
   fecha_validacion_orden_compra: Date;
 }
