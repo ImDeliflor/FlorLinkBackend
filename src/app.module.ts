@@ -39,6 +39,14 @@ import { DetalleCompraModule } from './compras/detalle_compra/detalle_compra.mod
 import { CategoriaModule } from './tablas_basicas/categoria/categoria.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { ProductoAlmacenModule } from './almacen/producto_almacen/producto_almacen.module';
+import { LoteProductoAlmacenModule } from './almacen/lote_producto_almacen/lote_producto_almacen.module';
+import { LaboratorioProductoModule } from './tablas_basicas/laboratorio_producto/laboratorio_producto.module';
+import { EntradasPendientesAlmacenModule } from './almacen/entradas_pendientes_almacen/entradas_pendientes_almacen.module';
+import { InventarioAlmacenModule } from './almacen/inventario_almacen/inventario_almacen.module';
+import { EntradasAlmacenModule } from './almacen/entradas_almacen/entradas_almacen.module';
+import { SalidasAlmacenModule } from './almacen/salidas_almacen/salidas_almacen.module';
+import { CentroCostosModule } from './tablas_basicas/centro_costos/centro_costos.module';
 
 @Module({
   imports: [
@@ -64,6 +72,14 @@ import { AuthModule } from './auth/auth.module';
     CategoriaModule,
     UsersModule,
     AuthModule,
+    ProductoAlmacenModule,
+    LoteProductoAlmacenModule,
+    LaboratorioProductoModule,
+    EntradasPendientesAlmacenModule,
+    InventarioAlmacenModule,
+    EntradasAlmacenModule,
+    SalidasAlmacenModule,
+    CentroCostosModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],
