@@ -13,6 +13,21 @@ export class EmpleadoController {
     private readonly empleadoService1: EmpleadoService,
   ) {}
 
+  // Rutas estáticas
+  @Auth(Role.Admin, Role.User)
+  @Get()
+  findAll(): Promise<Empleado[]> {
+    return this.empleadoService1.findAll();
+  }
+
+  @Auth(Role.Admin, Role.HolaAmigo)
+  @Get('empleado-view/employees')
+  async findAllEmployees(): Promise<EmpleadoView[]> {
+    return await this.empleadoService.findAllEmployees();
+  }
+
+  // Rutas dinámicas
+  @Auth(Role.Admin, Role.HolaAmigo)
   @Get('empleado-view/:celular')
   async getByCelular(
     @Param('celular') celular: string,
@@ -28,11 +43,7 @@ export class EmpleadoController {
     return await this.empleadoService.findEmpleadoByCorreo(correo);
   }
 
-  @Get()
-  findAll(): Promise<Empleado[]> {
-    return this.empleadoService1.findAll();
-  }
-
+  @Auth(Role.Admin, Role.User)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number): Promise<Empleado | null> {
     return this.empleadoService1.findOne(id);
