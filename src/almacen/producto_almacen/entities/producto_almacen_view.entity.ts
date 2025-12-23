@@ -17,6 +17,12 @@ export class ProductoAlmacenView {
   @Column({ name: 'descripcion', type: 'varchar' })
   descripcion: string;
 
+  @Column()
+  id_categoria_costo: number;
+
+  @Column()
+  nombre_categoria_costo: string;
+
   @Column({
     name: 'unidad_medida',
     type: 'varchar',

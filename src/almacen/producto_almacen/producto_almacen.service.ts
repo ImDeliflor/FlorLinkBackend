@@ -20,7 +20,11 @@ export class ProductoAlmacenService {
 
   // READ ALL
   async findAll() {
-    return await this.productoRepo.find();
+    return await this.productoRepo.find({
+      order: {
+        cod_producto: 'ASC',
+      },
+    });
   }
 
   // READ ONE

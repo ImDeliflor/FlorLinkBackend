@@ -21,4 +21,7 @@ export class ProductoAlmacen {
 
   @Column({ name: 'fecha_registro', type: 'timestamp', nullable: true })
   fecha_registro: Date;
+
+  @Column({ name: 'id_categoria_costo', type: 'int', nullable: true })
+  id_categoria_costo: number;
 }

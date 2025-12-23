@@ -16,4 +16,8 @@ export class CreateProductoAlmacenDto {
   @IsOptional()
   @IsDateString()
   fecha_registro?: string;
+
+  @IsOptional()
+  @IsInt()
+  id_categoria_costo?: number;
 }

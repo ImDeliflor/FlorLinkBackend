@@ -12,6 +12,10 @@ export class ProductoAlmacenViewService {
 
   // READ ALL
   async findAll() {
-    return await this.productoViewRepo.find();
+    return await this.productoViewRepo.find({
+      order: {
+        cod_producto: 'ASC',
+      },
+    });
   }
 }
