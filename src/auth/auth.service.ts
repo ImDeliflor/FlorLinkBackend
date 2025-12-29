@@ -51,7 +51,12 @@ export class AuthService {
       throw new UnauthorizedException('Contraseña incorrecta');
     }
 
-    const payload = { email: user.email, id_rol: user.id_rol };
+    const roles = await this.usersService.findRolesByUserId(user.id_usuario);
+
+    const payload = {
+      email: user.email,
+      roles,
+    };
 
     const token = await this.jwtService.signAsync(payload);
 
@@ -61,7 +66,7 @@ export class AuthService {
     };
   }
 
-  async profile({ email, id_rol }: { email: string; id_rol: number }) {
-    return await this.usersService.findOneByEmail(email);
+  async profile({ email, roles }: { email: string; roles: number[] }) {
+    return this.usersService.findOneByEmail(email);
   }
 }

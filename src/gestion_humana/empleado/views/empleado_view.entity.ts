@@ -108,10 +108,10 @@ export class EmpleadoView {
   id_usuario: number | null;
 
   @ViewColumn()
-  id_rol: number | null;
-
-  @ViewColumn()
-  nombre_rol: string | null;
+  roles: {
+    id_rol: number;
+    nombre_rol: string;
+  }[];
 
   @ViewColumn()
   id_jefe_grupo_colaborativo: number | null;

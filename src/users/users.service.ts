@@ -6,6 +6,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 
+type UserRoleRow = {
+  id_rol: number;
+};
+
 @Injectable()
 export class UsersService {
   constructor(
@@ -24,8 +28,21 @@ export class UsersService {
   findByEmailWithPassword(email: string) {
     return this.userRepository.findOne({
       where: { email },
-      select: ['id_empleado', 'email', 'password_hash', 'id_rol'],
+      select: ['id_usuario', 'id_empleado', 'email', 'password_hash'],
     });
+  }
+
+  async findRolesByUserId(id_usuario: number): Promise<number[]> {
+    const result: UserRoleRow[] = await this.userRepository.query(
+      `
+    SELECT ur.id_rol
+    FROM seguridad.usuario_rol ur
+    WHERE ur.id_usuario = $1
+    `,
+      [id_usuario],
+    );
+
+    return result.map((r) => r.id_rol);
   }
 
   findAll() {

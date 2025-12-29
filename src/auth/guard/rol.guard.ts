@@ -1,31 +1,37 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from '../decorators/roles.decorator';
 import { Role } from '../../common/enums/rol.enum';
+import { RequestWithUser } from '../interfaces/request-with-user.interface';
 
 @Injectable()
 export class RolGuard implements CanActivate {
   constructor(private readonly reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
-    const roles = this.reflector.getAllAndOverride<number[]>(ROLES_KEY, [
-      context.getHandler(),
-      context.getClass(),
-    ]);
+    const requiredRoles = this.reflector.getAllAndOverride<number[]>(
+      ROLES_KEY,
+      [context.getHandler(), context.getClass()],
+    );
 
-    if (!roles || roles.length === 0) {
+    if (!requiredRoles || requiredRoles.length === 0) {
       return true;
     }
 
-    const { user } = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<RequestWithUser>();
 
-    if (user.id_rol == Role.Superadmin) {
+    const { user } = request;
+
+    if (!user || !Array.isArray(user.roles)) {
+      return false;
+    }
+
+    // 🔥 Superadmin pasa siempre
+    if (user.roles.includes(Role.Superadmin)) {
       return true;
     }
 
-    return roles.includes(user.id_rol);
+    // 🔥 Intersección de roles
+    return user.roles.some((rol) => requiredRoles.includes(rol));
   }
 }

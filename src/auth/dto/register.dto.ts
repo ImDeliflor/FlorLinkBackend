@@ -1,5 +1,7 @@
 import { Transform } from 'class-transformer';
 import {
+  ArrayNotEmpty,
+  IsArray,
   IsEmail,
   IsNumber,
   IsOptional,
@@ -20,6 +22,8 @@ export class RegisterDto {
   password_hash: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsArray()
+  @ArrayNotEmpty()
+  @IsNumber({}, { each: true })
   id_rol?: number;
 }

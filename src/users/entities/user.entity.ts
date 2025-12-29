@@ -1,4 +1,3 @@
-import { Role } from '../../common/enums/rol.enum';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -25,14 +24,6 @@ export class User {
     select: false,
   })
   password_hash: string;
-
-  @Column({
-    name: 'id_rol',
-    type: 'enum',
-    default: Role.User,
-    enum: Role,
-  })
-  id_rol?: number;
 
   @Column({ name: 'activo', type: 'boolean', default: true })
   activo: boolean;
