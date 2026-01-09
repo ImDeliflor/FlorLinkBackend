@@ -10,6 +10,9 @@ export class CreateSalidaAlmacenDto {
   @IsDateString()
   fecha_salida: string;
 
+  @IsString()
+  tipo_documento: string;
+
   @IsInt()
   cod_producto: number;
 

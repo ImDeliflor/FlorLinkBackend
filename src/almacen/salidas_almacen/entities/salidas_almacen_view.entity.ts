@@ -9,6 +9,9 @@ export class SalidasAlmacenView {
   id_salida_almacen: number;
 
   @ViewColumn()
+  tipo_documento: string;
+
+  @ViewColumn()
   fecha_salida: Date;
 
   @ViewColumn()

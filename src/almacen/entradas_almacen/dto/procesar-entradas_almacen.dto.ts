@@ -1,4 +1,6 @@
 import {
+  IsDateString,
+  IsEnum,
   IsInt,
   IsNotEmpty,
   IsNumber,
@@ -7,7 +9,12 @@ import {
   MaxLength,
 } from 'class-validator';
 
-export class CreateEntradasAlmacenDto {
+export enum HasLoteEnum {
+  SI = 'si',
+  NO = 'no',
+}
+
+export class ProcesarEntradasAlmacenDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(20)
@@ -16,10 +23,10 @@ export class CreateEntradasAlmacenDto {
   @IsString()
   @MaxLength(50)
   @IsOptional()
-  nro_factura: string;
+  nro_factura?: string;
 
-  @IsNotEmpty()
-  fecha_entrada: Date;
+  @IsDateString()
+  fecha_entrada: string;
 
   @IsInt()
   cod_producto: number;
@@ -28,7 +35,8 @@ export class CreateEntradasAlmacenDto {
   cantidad: number;
 
   @IsNumber()
-  precio_unidad: number;
+  @IsOptional()
+  precio_unidad?: number;
 
   @IsString()
   @IsOptional()
@@ -38,6 +46,13 @@ export class CreateEntradasAlmacenDto {
   @IsInt()
   created_by: number;
 
-  @IsNotEmpty()
-  fecha_factura: Date;
+  @IsDateString()
+  fecha_factura: string;
+
+  @IsEnum(HasLoteEnum)
+  has_lote: HasLoteEnum;
+
+  @IsNumber()
+  @IsOptional()
+  id_lote?: number;
 }

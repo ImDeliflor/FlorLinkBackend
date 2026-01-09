@@ -5,6 +5,9 @@ export class SalidasAlmacen {
   @PrimaryGeneratedColumn({ name: 'id_salida_almacen' })
   id_salida_almacen: number;
 
+  @Column({ name: 'tipo_documento', type: 'varchar', length: 20 })
+  tipo_documento: string;
+
   @Column({ name: 'fecha_salida', type: 'timestamp' })
   fecha_salida: Date;
 

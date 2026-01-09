@@ -9,6 +9,9 @@ export class EntradasAlmacenView {
   id_entrada_almacen: number;
 
   @ViewColumn()
+  tipo_documento: string;
+
+  @ViewColumn()
   nro_factura: string;
 
   @ViewColumn()

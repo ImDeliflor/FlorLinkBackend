@@ -5,7 +5,10 @@ export class EntradasAlmacen {
   @PrimaryGeneratedColumn({ name: 'id_entrada_almacen' })
   id_entrada_almacen: number;
 
-  @Column({ name: 'nro_factura', type: 'varchar', length: 50 })
+  @Column({ name: 'tipo_documento', type: 'varchar', length: 10 })
+  tipo_documento: string;
+
+  @Column({ name: 'nro_factura', type: 'varchar', length: 50, nullable: true })
   nro_factura: string;
 
   @Column({ name: 'fecha_entrada', type: 'timestamp' })

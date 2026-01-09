@@ -14,6 +14,7 @@ import { UpdateEntradasAlmacenDto } from './dto/update-entradas_almacen.dto';
 import { EntradasAlmacenViewService } from './entradas_almacen_view.service';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
+import { ProcesarEntradasAlmacenDto } from './dto/procesar-entradas_almacen.dto';
 
 @Auth(Role.Admin, Role.User)
 @Controller('entradas-almacen')
@@ -32,6 +33,14 @@ export class EntradasAlmacenController {
   @Get()
   findAll() {
     return this.entradasService.findAll();
+  }
+
+  //End Points transaccionales
+
+  // Para la entrada de productos
+  @Post('procesar')
+  createEntrada(@Body() dto: ProcesarEntradasAlmacenDto) {
+    return this.entradasService.createEntrada(dto);
   }
 
   // Reportes
