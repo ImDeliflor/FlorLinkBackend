@@ -14,7 +14,9 @@ export class OrdenCompraService {
 
   // Obtener las ordenes de compra
   findAll(): Promise<OrdenCompra[]> {
-    return this.ordenCompraRepository.find();
+    return this.ordenCompraRepository.find({
+      order: { id_orden_compra: 'DESC' },
+    });
   }
 
   // Guardar orden de compra

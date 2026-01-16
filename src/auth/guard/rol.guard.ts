@@ -26,12 +26,12 @@ export class RolGuard implements CanActivate {
       return false;
     }
 
-    // 🔥 Superadmin pasa siempre
+    // Superadmin pasa siempre
     if (user.roles.includes(Role.Superadmin)) {
       return true;
     }
 
-    // 🔥 Intersección de roles
+    // Intersección de roles
     return user.roles.some((rol) => requiredRoles.includes(rol));
   }
 }

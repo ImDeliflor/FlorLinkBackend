@@ -22,7 +22,9 @@ export class DetalleCompraService {
 
   // Obtener todos los detalles de compra
   findAll(): Promise<DetalleCompra[]> {
-    return this.detalleCompraRepository.find();
+    return this.detalleCompraRepository.find({
+      order: { id_detalle_compra: 'DESC' },
+    });
   }
 
   // Modificar un detalle de compra

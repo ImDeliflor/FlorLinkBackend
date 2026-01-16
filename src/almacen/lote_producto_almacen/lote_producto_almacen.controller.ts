@@ -15,7 +15,7 @@ import { LoteProductoAlmacenViewService } from './lote_producto_almacen_view.ser
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('lote-producto')
 export class LoteProductoAlmacenController {
   constructor(

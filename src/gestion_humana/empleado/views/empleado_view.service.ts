@@ -14,6 +14,7 @@ export class EmpleadoViewService {
 
   async findAllEmployees(): Promise<EmpleadoView[]> {
     return this.empleadoViewRepository.find({
+      order: { nombre: 'ASC' },
       select: [
         'id_empleado',
         'tipo_documento',

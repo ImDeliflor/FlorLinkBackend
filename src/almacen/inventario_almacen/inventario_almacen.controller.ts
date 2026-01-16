@@ -14,7 +14,7 @@ import { InventarioAlmacenViewService } from './inventario_almacen_view.service'
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('inventario-almacen')
 export class InventarioAlmacenController {
   constructor(

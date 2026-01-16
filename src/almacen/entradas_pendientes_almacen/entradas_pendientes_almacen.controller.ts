@@ -14,7 +14,7 @@ import { EntradasPendientesAlmacenViewService } from './entradas_pendientes_alma
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('entradas-pendientes')
 export class EntradasPendientesAlmacenController {
   constructor(

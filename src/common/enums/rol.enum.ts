@@ -3,4 +3,12 @@ export enum Role {
   User = 2,
   Superadmin = 3,
   HolaAmigo = 4,
+  Almacenista = 6,
+  AdminCompras = 7,
+  AprobadorCompras = 8,
+  UsuarioCompras = 9,
+  AdminAlmacen = 10,
+  SalidasAlmacen = 11,
+  AdminGH = 12,
+  UsuarioGH = 13,
 }

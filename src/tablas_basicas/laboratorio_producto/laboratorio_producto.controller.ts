@@ -10,7 +10,10 @@ import {
 import { LaboratorioProductoService } from './laboratorio_producto.service';
 import { CreateLaboratorioProductoDto } from './dto/create-laboratorio_producto.dto';
 import { UpdateLaboratorioProductoDto } from './dto/update-laboratorio_producto.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/common/enums/rol.enum';
 
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('laboratorio')
 export class LaboratorioProductoController {
   constructor(

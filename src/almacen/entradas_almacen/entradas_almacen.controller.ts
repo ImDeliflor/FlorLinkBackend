@@ -16,7 +16,7 @@ import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 import { ProcesarEntradasAlmacenDto } from './dto/procesar-entradas_almacen.dto';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista)
 @Controller('entradas-almacen')
 export class EntradasAlmacenController {
   constructor(

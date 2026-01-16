@@ -47,6 +47,17 @@ import { InventarioAlmacenModule } from './almacen/inventario_almacen/inventario
 import { EntradasAlmacenModule } from './almacen/entradas_almacen/entradas_almacen.module';
 import { SalidasAlmacenModule } from './almacen/salidas_almacen/salidas_almacen.module';
 import { CentroCostosModule } from './tablas_basicas/centro_costos/centro_costos.module';
+import { TipoDocumentoModule } from './tablas_basicas/tipo_documento/tipo_documento.module';
+import { CiudadModule } from './tablas_basicas/ciudad/ciudad.module';
+import { CargoModule } from './tablas_basicas/cargo/cargo.module';
+import { AreaModule } from './tablas_basicas/area/area.module';
+import { SexoModule } from './tablas_basicas/sexo/sexo.module';
+import { EpsModule } from './tablas_basicas/eps/eps.module';
+import { FondoPensionesModule } from './tablas_basicas/fondo_pensiones/fondo_pensiones.module';
+import { FondoCesantiasModule } from './tablas_basicas/fondo_cesantias/fondo_cesantias.module';
+import { EstadoCivilModule } from './tablas_basicas/estado_civil/estado_civil.module';
+import { MedioTransporteModule } from './tablas_basicas/medio_transporte/medio_transporte.module';
+import { TipoContratoModule } from './tablas_basicas/tipo_contrato/tipo_contrato.module';
 
 @Module({
   imports: [
@@ -80,6 +91,17 @@ import { CentroCostosModule } from './tablas_basicas/centro_costos/centro_costos
     EntradasAlmacenModule,
     SalidasAlmacenModule,
     CentroCostosModule,
+    TipoDocumentoModule,
+    CiudadModule,
+    CargoModule,
+    AreaModule,
+    SexoModule,
+    EpsModule,
+    FondoPensionesModule,
+    FondoCesantiasModule,
+    EstadoCivilModule,
+    MedioTransporteModule,
+    TipoContratoModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],

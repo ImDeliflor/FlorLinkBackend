@@ -14,7 +14,7 @@ import { SalidasAlmacenViewService } from './salidas_almacen_view.service';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('salidas-almacen')
 export class SalidasAlmacenController {
   constructor(

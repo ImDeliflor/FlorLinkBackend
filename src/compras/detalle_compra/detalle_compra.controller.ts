@@ -13,7 +13,10 @@ import { CreateDetalleCompraDto } from './dto/create-detalle-compra.dto';
 import { DetalleCompraServiceView } from './detalle_compra_view.service';
 import { DetalleCompraView } from './detalle_compra_view.entity';
 import { UpdateDetalleCompraDto } from './dto/update-detalle-compra.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/common/enums/rol.enum';
 
+@Auth(Role.Admin, Role.AdminCompras, Role.UsuarioCompras, Role.AprobadorCompras)
 @Controller('detalle-compra')
 export class DetalleCompraController {
   constructor(

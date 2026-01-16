@@ -13,7 +13,7 @@ import { UpdateCentroCostoDto } from './dto/update-centro_costo.dto';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.User)
+@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
 @Controller('centro-costos')
 export class CentroCostosController {
   constructor(private readonly centroCostosService: CentroCostosService) {}
