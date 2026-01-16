@@ -31,7 +31,7 @@ export class EmpleadoController {
     return this.empleadoService1.findAll();
   }
 
-  @Auth(Role.Admin, Role.User)
+  @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
   @Post()
   create(@Body() dto: CreateEmpleadoDto) {
     return this.empleadoService1.create(dto);
@@ -74,13 +74,14 @@ export class EmpleadoController {
     return await this.empleadoService.findEmpleadoByCorreo(correo);
   }
 
-  @Auth(Role.Admin, Role.User)
+  @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number): Promise<Empleado | null> {
     return this.empleadoService1.findOne(id);
   }
 
   // UPDATE
+  @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
   @Auth(Role.Admin, Role.User)
   @Put(':id')
   update(
@@ -91,6 +92,7 @@ export class EmpleadoController {
   }
 
   // DELETE (CONCEPTUAL)
+  @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
   @Auth(Role.Admin, Role.User)
   @Put('take-out-employee/:id')
   takeOutEmployee(@Param('id', ParseIntPipe) id: number) {
@@ -98,7 +100,7 @@ export class EmpleadoController {
   }
 
   // DELETE (FÍSICO)
-  @Auth(Role.Admin, Role.User)
+  @Auth(Role.Superadmin)
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.empleadoService1.remove(id);
