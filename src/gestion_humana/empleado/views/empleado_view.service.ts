@@ -130,6 +130,7 @@ export class EmpleadoViewService {
         'cantidad_hijos',
         'hijos',
         'medio_transporte',
+        'id_jefe',
         'cedula_jefe',
         'nombre_jefe',
         'correo_jefe',
@@ -143,6 +144,20 @@ export class EmpleadoViewService {
         'tipo_contrato',
         'estado_empleado',
       ],
+    });
+  }
+
+  // Obtener el equipo de trabajo de un jefe
+  async getWorkTeam(id_jefe_directo: number) {
+    return this.empleadoViewRepository.find({
+      where: { id_jefe: id_jefe_directo },
+      select: {
+        id_empleado: true,
+        nombre: true,
+        apellidos: true,
+        es_jefe: true,
+        grupo: true,
+      },
     });
   }
 }

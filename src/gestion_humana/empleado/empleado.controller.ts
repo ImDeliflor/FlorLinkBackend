@@ -52,6 +52,27 @@ export class EmpleadoController {
     return await this.empleadoService.findByCelular(celular);
   }
 
+  // Obtener el equipo de trabajo de un jefe
+  @Auth(
+    Role.Superadmin,
+    Role.Admin,
+    Role.User,
+    Role.Superadmin,
+    Role.HolaAmigo,
+    Role.Almacenista,
+    Role.AdminCompras,
+    Role.AprobadorCompras,
+    Role.UsuarioCompras,
+    Role.AdminAlmacen,
+    Role.SalidasAlmacen,
+    Role.AdminGH,
+    Role.UsuarioGH,
+  )
+  @Get('get-team/:id_jefe_directo')
+  async getWorkTeam(@Param('id_jefe_directo') id_jefe_directo: number) {
+    return await this.empleadoService.getWorkTeam(id_jefe_directo);
+  }
+
   @Auth(
     Role.Superadmin,
     Role.Admin,

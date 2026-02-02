@@ -58,6 +58,7 @@ import { FondoCesantiasModule } from './tablas_basicas/fondo_cesantias/fondo_ces
 import { EstadoCivilModule } from './tablas_basicas/estado_civil/estado_civil.module';
 import { MedioTransporteModule } from './tablas_basicas/medio_transporte/medio_transporte.module';
 import { TipoContratoModule } from './tablas_basicas/tipo_contrato/tipo_contrato.module';
+import { CompromisosEmpleadoModule } from './gestion_humana/compromisos_empleado/compromisos_empleado.module';
 
 @Module({
   imports: [
@@ -102,6 +103,7 @@ import { TipoContratoModule } from './tablas_basicas/tipo_contrato/tipo_contrato
     EstadoCivilModule,
     MedioTransporteModule,
     TipoContratoModule,
+    CompromisosEmpleadoModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],
