@@ -114,7 +114,6 @@ export class EmpleadoController {
 
   // DELETE (CONCEPTUAL)
   @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
-  @Auth(Role.Admin, Role.User)
   @Put('take-out-employee/:id')
   takeOutEmployee(@Param('id', ParseIntPipe) id: number) {
     return this.empleadoService1.takeOutEmployee(id);
