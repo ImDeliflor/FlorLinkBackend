@@ -14,7 +14,13 @@ import { InventarioAlmacenViewService } from './inventario_almacen_view.service'
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.SalidasAlmacen,
+  Role.VisualizacionAlmacen,
+)
 @Controller('inventario-almacen')
 export class InventarioAlmacenController {
   constructor(
@@ -28,21 +34,18 @@ export class InventarioAlmacenController {
     return this.inventarioAlmacenService.create(createInventarioAlmacenDto);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.inventarioAlmacenService.findAll();
   }
 
   // Reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.inventarioAlmacenViewService.findAll();
   }
 
   // Rutas dinámicas
-  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.inventarioAlmacenService.findOne(+id);
@@ -64,7 +67,6 @@ export class InventarioAlmacenController {
     return this.inventarioAlmacenService.remove(+id);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get('exists/:cod_producto')
   async productExists(@Param('cod_producto') cod_producto: number) {
     return this.inventarioAlmacenService.productExists(+cod_producto);

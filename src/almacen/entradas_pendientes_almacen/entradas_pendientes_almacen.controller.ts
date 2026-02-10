@@ -14,7 +14,13 @@ import { EntradasPendientesAlmacenViewService } from './entradas_pendientes_alma
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.SalidasAlmacen,
+  Role.VisualizacionAlmacen,
+)
 @Controller('entradas-pendientes')
 export class EntradasPendientesAlmacenController {
   constructor(
@@ -23,7 +29,6 @@ export class EntradasPendientesAlmacenController {
   ) {}
 
   // Rutas estáticas
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.entradasPendientesService.findAll();
@@ -34,14 +39,12 @@ export class EntradasPendientesAlmacenController {
     return this.entradasPendientesService.create(dto);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/estado-pendiente')
   findAllPending() {
     return this.entradasPendientesViewService.findAllPending();
   }
 
   // Reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.entradasPendientesViewService.findAll();
@@ -49,7 +52,6 @@ export class EntradasPendientesAlmacenController {
 
   // Rutas dinámicas
   @Get(':id')
-  @Auth(Role.VisualizacionAlmacen)
   findOne(@Param('id') id: string) {
     return this.entradasPendientesService.findOne(+id);
   }

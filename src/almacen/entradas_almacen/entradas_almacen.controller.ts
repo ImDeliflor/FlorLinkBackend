@@ -16,7 +16,12 @@ import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 import { ProcesarEntradasAlmacenDto } from './dto/procesar-entradas_almacen.dto';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.VisualizacionAlmacen,
+)
 @Controller('entradas-almacen')
 export class EntradasAlmacenController {
   constructor(
@@ -30,7 +35,6 @@ export class EntradasAlmacenController {
     return this.entradasService.create(dto);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.entradasService.findAll();
@@ -45,14 +49,12 @@ export class EntradasAlmacenController {
   }
 
   // Reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.entradasViewService.findAll();
   }
 
   // Rutas dinámicas
-  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.entradasService.findOne(id);

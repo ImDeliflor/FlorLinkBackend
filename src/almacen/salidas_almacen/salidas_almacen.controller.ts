@@ -14,7 +14,13 @@ import { SalidasAlmacenViewService } from './salidas_almacen_view.service';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.SalidasAlmacen,
+  Role.VisualizacionAlmacen,
+)
 @Controller('salidas-almacen')
 export class SalidasAlmacenController {
   constructor(
@@ -28,7 +34,6 @@ export class SalidasAlmacenController {
     return this.service.create(dto);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.service.findAll();
@@ -49,14 +54,12 @@ export class SalidasAlmacenController {
   }
 
   // reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.serviceView.findAll();
   }
 
   // rutas dinámicas
-  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.service.findOne(id);

@@ -15,7 +15,13 @@ import { LoteProductoAlmacenViewService } from './lote_producto_almacen_view.ser
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.SalidasAlmacen,
+  Role.VisualizacionAlmacen,
+)
 @Controller('lote-producto')
 export class LoteProductoAlmacenController {
   constructor(
@@ -24,7 +30,6 @@ export class LoteProductoAlmacenController {
   ) {}
 
   // Rutas estáticas
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.loteProductoAlmacenService.findAll();
@@ -36,14 +41,12 @@ export class LoteProductoAlmacenController {
   }
 
   // Reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.loteProductoAlmacenViewService.findAll();
   }
 
   // Rutas dinámicas
-  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.loteProductoAlmacenService.findOne(id);

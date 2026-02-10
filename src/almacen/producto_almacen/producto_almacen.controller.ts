@@ -14,7 +14,13 @@ import { ProductoAlmacenViewService } from './producto_almacen_view.service';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
 
-@Auth(Role.Admin, Role.AdminAlmacen, Role.Almacenista, Role.SalidasAlmacen)
+@Auth(
+  Role.Admin,
+  Role.AdminAlmacen,
+  Role.Almacenista,
+  Role.SalidasAlmacen,
+  Role.VisualizacionAlmacen,
+)
 @Controller('producto-almacen')
 export class ProductoAlmacenController {
   constructor(
@@ -28,21 +34,18 @@ export class ProductoAlmacenController {
     return this.productoService.create(dto);
   }
 
-  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.productoService.findAll();
   }
 
   // Reportes
-  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.productoViewService.findAll();
   }
 
   // Rutas dinámicas
-  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id') cod_producto: number) {
     return this.productoService.findOne(cod_producto);
