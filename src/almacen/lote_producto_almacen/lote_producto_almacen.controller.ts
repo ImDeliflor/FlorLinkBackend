@@ -24,6 +24,7 @@ export class LoteProductoAlmacenController {
   ) {}
 
   // Rutas estáticas
+  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.loteProductoAlmacenService.findAll();
@@ -35,12 +36,14 @@ export class LoteProductoAlmacenController {
   }
 
   // Reportes
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.loteProductoAlmacenViewService.findAll();
   }
 
   // Rutas dinámicas
+  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.loteProductoAlmacenService.findOne(id);

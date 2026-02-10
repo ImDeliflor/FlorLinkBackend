@@ -28,6 +28,7 @@ export class SalidasAlmacenController {
     return this.service.create(dto);
   }
 
+  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.service.findAll();
@@ -48,12 +49,14 @@ export class SalidasAlmacenController {
   }
 
   // reportes
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.serviceView.findAll();
   }
 
   // rutas dinámicas
+  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.service.findOne(id);

@@ -23,6 +23,7 @@ export class EntradasPendientesAlmacenController {
   ) {}
 
   // Rutas estáticas
+  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.entradasPendientesService.findAll();
@@ -33,12 +34,14 @@ export class EntradasPendientesAlmacenController {
     return this.entradasPendientesService.create(dto);
   }
 
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/estado-pendiente')
   findAllPending() {
     return this.entradasPendientesViewService.findAllPending();
   }
 
   // Reportes
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.entradasPendientesViewService.findAll();
@@ -46,6 +49,7 @@ export class EntradasPendientesAlmacenController {
 
   // Rutas dinámicas
   @Get(':id')
+  @Auth(Role.VisualizacionAlmacen)
   findOne(@Param('id') id: string) {
     return this.entradasPendientesService.findOne(+id);
   }

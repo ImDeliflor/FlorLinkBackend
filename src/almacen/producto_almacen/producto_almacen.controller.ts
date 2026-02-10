@@ -28,18 +28,21 @@ export class ProductoAlmacenController {
     return this.productoService.create(dto);
   }
 
+  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.productoService.findAll();
   }
 
   // Reportes
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.productoViewService.findAll();
   }
 
   // Rutas dinámicas
+  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id') cod_producto: number) {
     return this.productoService.findOne(cod_producto);

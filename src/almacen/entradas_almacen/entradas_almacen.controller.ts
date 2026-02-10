@@ -30,6 +30,7 @@ export class EntradasAlmacenController {
     return this.entradasService.create(dto);
   }
 
+  @Auth(Role.VisualizacionAlmacen)
   @Get()
   findAll() {
     return this.entradasService.findAll();
@@ -44,12 +45,14 @@ export class EntradasAlmacenController {
   }
 
   // Reportes
+  @Auth(Role.VisualizacionAlmacen)
   @Get('/report')
   findAllReport() {
     return this.entradasViewService.findAll();
   }
 
   // Rutas dinámicas
+  @Auth(Role.VisualizacionAlmacen)
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.entradasService.findOne(id);
