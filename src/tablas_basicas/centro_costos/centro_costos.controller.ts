@@ -3,9 +3,9 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { CentroCostosService } from './centro_costos.service';
 import { CreateCentroCostoDto } from './dto/create-centro_costo.dto';
@@ -33,7 +33,7 @@ export class CentroCostosController {
     return this.centroCostosService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() updateCentroCostoDto: UpdateCentroCostoDto,

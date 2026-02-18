@@ -17,7 +17,7 @@ import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/enums/rol.enum';
 import { ProcesarEvaluacionDto } from './dto/procesar-evaluacion.dto';
 
-@Auth(Role.Admin, Role.AdminGH)
+@Auth(Role.Admin, Role.AdminGH, Role.UsuarioEvalDesempenio)
 @Controller('evaluacion-desempenio')
 export class EvaluacionDesempenioController {
   constructor(private readonly service: EvaluacionDesempenioService) {}

@@ -14,7 +14,10 @@ export class EmpleadoService {
 
   // Obtener todos los empleados
   findAll(): Promise<Empleado[]> {
-    return this.empleadoRepository.find({ order: { nombre: 'ASC' } });
+    return this.empleadoRepository.find({
+      where: { estado_empleado: 'Activo' },
+      order: { nombre: 'ASC' },
+    });
   }
 
   // Guardar un empleado

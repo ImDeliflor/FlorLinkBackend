@@ -12,4 +12,5 @@ export enum Role {
   AdminGH = 12,
   UsuarioGH = 13,
   VisualizacionAlmacen = 14,
+  UsuarioEvalDesempenio = 16,
 }

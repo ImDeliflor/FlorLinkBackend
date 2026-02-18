@@ -59,6 +59,10 @@ import { EstadoCivilModule } from './tablas_basicas/estado_civil/estado_civil.mo
 import { MedioTransporteModule } from './tablas_basicas/medio_transporte/medio_transporte.module';
 import { TipoContratoModule } from './tablas_basicas/tipo_contrato/tipo_contrato.module';
 import { CompromisosEmpleadoModule } from './gestion_humana/compromisos_empleado/compromisos_empleado.module';
+import { EmpleadoHijoModule } from './gestion_humana/empleado_hijo/empleado_hijo.module';
+import { HijoModule } from './gestion_humana/hijo/hijo.module';
+import { RolFamiliarModule } from './tablas_basicas/rol_familiar/rol_familiar.module';
+import { EmpleadoCentroCostosModule } from './gestion_humana/empleado_centro_costos/empleado_centro_costos.module';
 
 @Module({
   imports: [
@@ -104,6 +108,10 @@ import { CompromisosEmpleadoModule } from './gestion_humana/compromisos_empleado
     MedioTransporteModule,
     TipoContratoModule,
     CompromisosEmpleadoModule,
+    EmpleadoHijoModule,
+    HijoModule,
+    RolFamiliarModule,
+    EmpleadoCentroCostosModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],

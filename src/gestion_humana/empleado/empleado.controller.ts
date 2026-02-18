@@ -53,21 +53,7 @@ export class EmpleadoController {
   }
 
   // Obtener el equipo de trabajo de un jefe
-  @Auth(
-    Role.Superadmin,
-    Role.Admin,
-    Role.User,
-    Role.Superadmin,
-    Role.HolaAmigo,
-    Role.Almacenista,
-    Role.AdminCompras,
-    Role.AprobadorCompras,
-    Role.UsuarioCompras,
-    Role.AdminAlmacen,
-    Role.SalidasAlmacen,
-    Role.AdminGH,
-    Role.UsuarioGH,
-  )
+  @Auth(Role.Admin, Role.UsuarioEvalDesempenio)
   @Get('get-team/:id_jefe_directo')
   async getWorkTeam(@Param('id_jefe_directo') id_jefe_directo: number) {
     return await this.empleadoService.getWorkTeam(id_jefe_directo);
@@ -103,7 +89,6 @@ export class EmpleadoController {
 
   // UPDATE
   @Auth(Role.Admin, Role.AdminGH, Role.UsuarioGH)
-  @Auth(Role.Admin, Role.User)
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
