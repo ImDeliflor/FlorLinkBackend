@@ -150,7 +150,7 @@ export class EmpleadoViewService {
   // Obtener el equipo de trabajo de un jefe
   async getWorkTeam(id_jefe_directo: number) {
     return this.empleadoViewRepository.find({
-      where: { id_jefe: id_jefe_directo },
+      where: { id_jefe: id_jefe_directo, estado_empleado: 'Activo' },
       select: {
         id_empleado: true,
         nombre: true,

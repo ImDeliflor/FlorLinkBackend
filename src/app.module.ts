@@ -63,6 +63,8 @@ import { EmpleadoHijoModule } from './gestion_humana/empleado_hijo/empleado_hijo
 import { HijoModule } from './gestion_humana/hijo/hijo.module';
 import { RolFamiliarModule } from './tablas_basicas/rol_familiar/rol_familiar.module';
 import { EmpleadoCentroCostosModule } from './gestion_humana/empleado_centro_costos/empleado_centro_costos.module';
+import { ConsumoCalderaModule } from './produccion/consumo_caldera/consumo_caldera.module';
+import { AreaProduccionModule } from './tablas_basicas/area_produccion/area_produccion.module';
 
 @Module({
   imports: [
@@ -112,6 +114,8 @@ import { EmpleadoCentroCostosModule } from './gestion_humana/empleado_centro_cos
     HijoModule,
     RolFamiliarModule,
     EmpleadoCentroCostosModule,
+    ConsumoCalderaModule,
+    AreaProduccionModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],
