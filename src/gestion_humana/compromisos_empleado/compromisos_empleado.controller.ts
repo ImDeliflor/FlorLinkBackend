@@ -16,7 +16,7 @@ import { CreateCompromisoEmpleadoDto } from './dto/create-compromisos_empleado.d
 import { CompromisoEmpleado } from './entities/compromisos_empleado.entity';
 import { UpdateCompromisosEmpleadoDto } from './dto/update-compromisos_empleado.dto';
 
-@Auth(Role.Admin, Role.AdminGH)
+@Auth(Role.Admin, Role.AdminGH, Role.UsuarioEvalDesempenio)
 @Controller('compromisos-empleado')
 export class CompromisoEmpleadoController {
   constructor(private readonly service: CompromisoEmpleadoService) {}
