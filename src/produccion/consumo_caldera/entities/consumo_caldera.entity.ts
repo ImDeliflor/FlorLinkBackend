@@ -14,9 +14,6 @@ export class ConsumoCaldera {
   @Column({ name: 'id_area_produccion', type: 'int' })
   id_area_produccion: number;
 
-  @Column({ name: 'id_centro_costos', type: 'int' })
-  id_centro_costos: number;
-
   @Column({
     name: 'reporte_inicial_medidor',
     type: 'numeric',

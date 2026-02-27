@@ -27,17 +27,6 @@ export class ConsumoCalderaService {
     return data;
   }
 
-  // Función para traer los registros pendientes por llenar de un usuario
-  async findPendingToRegister(id_usuario: number): Promise<ConsumoCaldera[]> {
-    return this.repo.find({
-      where: {
-        created_by: id_usuario,
-        fecha_hora_fin: undefined,
-        reporte_final_medidor: undefined,
-      },
-    });
-  }
-
   async create(dto: CreateConsumoCalderaDto): Promise<ConsumoCaldera> {
     const entity = this.repo.create(dto);
     return this.repo.save(entity);

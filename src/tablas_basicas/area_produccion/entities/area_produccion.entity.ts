@@ -14,4 +14,7 @@ export class AreaProduccion {
     nullable: false,
   })
   nombre_area_produccion: string;
+
+  @Column({ name: 'id_centro_costos', type: 'int' })
+  id_centro_costos: number;
 }

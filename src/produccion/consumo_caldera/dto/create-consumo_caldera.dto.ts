@@ -14,17 +14,14 @@ export class CreateConsumoCalderaDto {
   id_area_produccion: number;
 
   @IsNumber()
-  id_centro_costos: number;
-
-  @IsNumber()
   reporte_inicial_medidor: number;
 
   @IsOptional()
   @IsNumber()
   reporte_final_medidor?: number;
 
-  @IsOptional()
-  fecha_creacion?: Date;
+  @IsDateString()
+  fecha_creacion: Date;
 
   @IsOptional()
   fecha_modificacion?: Date;

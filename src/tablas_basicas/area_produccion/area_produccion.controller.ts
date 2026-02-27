@@ -11,7 +11,10 @@ import {
 import { AreaProduccionService } from './area_produccion.service';
 import { CreateAreaProduccionDto } from './dto/create-area_produccion.dto';
 import { UpdateAreaProduccionDto } from './dto/update-area_produccion.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/common/enums/rol.enum';
 
+@Auth(Role.Superadmin)
 @Controller('area-produccion')
 export class AreaProduccionController {
   constructor(private readonly service: AreaProduccionService) {}

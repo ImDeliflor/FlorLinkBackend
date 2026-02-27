@@ -11,7 +11,10 @@ import { ConsumoCalderaService } from './consumo_caldera.service';
 import { CreateConsumoCalderaDto } from './dto/create-consumo_caldera.dto';
 import { UpdateConsumoCalderaDto } from './dto/update-consumo_caldera.dto';
 import { ConsumoCalderaServiceView } from './consumo_caldera_view.service';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/common/enums/rol.enum';
 
+@Auth(Role.Superadmin)
 @Controller('consumo-caldera')
 export class ConsumoCalderaController {
   constructor(
@@ -31,7 +34,7 @@ export class ConsumoCalderaController {
 
   @Get('/pending-register/:id_usuario')
   findPendingToRegister(@Param('id_usuario') id_usuario: number) {
-    return this.service.findPendingToRegister(id_usuario);
+    return this.serviceView.findPendingToRegister(id_usuario);
   }
 
   @Get(':id')
