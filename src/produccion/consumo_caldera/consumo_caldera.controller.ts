@@ -14,7 +14,7 @@ import { ConsumoCalderaServiceView } from './consumo_caldera_view.service';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/enums/rol.enum';
 
-@Auth(Role.Superadmin)
+@Auth(Role.Admin, Role.UsuarioConsumoCaldera, Role.VisualizacionConsumoCaldera)
 @Controller('consumo-caldera')
 export class ConsumoCalderaController {
   constructor(

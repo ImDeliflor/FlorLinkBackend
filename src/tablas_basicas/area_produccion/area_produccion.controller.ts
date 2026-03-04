@@ -14,7 +14,7 @@ import { UpdateAreaProduccionDto } from './dto/update-area_produccion.dto';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/enums/rol.enum';
 
-@Auth(Role.Superadmin)
+@Auth(Role.Admin, Role.UsuarioConsumoCaldera)
 @Controller('area-produccion')
 export class AreaProduccionController {
   constructor(private readonly service: AreaProduccionService) {}

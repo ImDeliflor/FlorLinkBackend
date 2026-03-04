@@ -23,6 +23,7 @@ export class CreateConsumoCalderaDto {
   @IsDateString()
   fecha_creacion: Date;
 
+  @IsDateString()
   @IsOptional()
   fecha_modificacion?: Date;
 

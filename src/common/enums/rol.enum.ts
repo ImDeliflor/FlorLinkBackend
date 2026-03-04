@@ -13,4 +13,6 @@ export enum Role {
   UsuarioGH = 13,
   VisualizacionAlmacen = 14,
   UsuarioEvalDesempenio = 16,
+  UsuarioConsumoCaldera = 17,
+  VisualizacionConsumoCaldera = 18,
 }
