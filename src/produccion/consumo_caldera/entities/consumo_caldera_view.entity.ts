@@ -36,6 +36,15 @@ export class ConsumoCalderaView {
   total_consumo_medidor: number;
 
   @ViewColumn()
+  cama_inicial: number;
+
+  @ViewColumn()
+  cama_final: number;
+
+  @ViewColumn()
+  camas_esterilizadas: number;
+
+  @ViewColumn()
   fecha_creacion: Date;
 
   @ViewColumn()

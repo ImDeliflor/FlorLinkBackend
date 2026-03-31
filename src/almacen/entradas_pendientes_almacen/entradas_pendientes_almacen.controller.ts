@@ -6,6 +6,7 @@ import {
   Param,
   Delete,
   Put,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { EntradasPendientesAlmacenService } from './entradas_pendientes_almacen.service';
 import { CreateEntradasPendientesAlmacenDto } from './dto/create-entradas_pendientes_almacen.dto';
@@ -13,6 +14,7 @@ import { UpdateEntradasPendientesAlmacenDto } from './dto/update-entradas_pendie
 import { EntradasPendientesAlmacenViewService } from './entradas_pendientes_almacen_view.service';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { Role } from '../../common/enums/rol.enum';
+import { ProcessEntradasPendientesAlmacenDto } from './dto/process-entradas_pendientes.dto';
 
 @Auth(
   Role.Admin,
@@ -37,6 +39,14 @@ export class EntradasPendientesAlmacenController {
   @Post()
   create(@Body() dto: CreateEntradasPendientesAlmacenDto) {
     return this.entradasPendientesService.create(dto);
+  }
+
+  @Post('/process/:id_producto')
+  processEntradaPendiente(
+    @Param('id_producto', ParseIntPipe) id: number,
+    @Body() dto: ProcessEntradasPendientesAlmacenDto,
+  ) {
+    return this.entradasPendientesService.processEntradaPendiente(id, dto);
   }
 
   @Get('/estado-pendiente')

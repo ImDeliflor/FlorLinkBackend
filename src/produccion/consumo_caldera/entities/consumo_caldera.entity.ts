@@ -31,6 +31,12 @@ export class ConsumoCaldera {
   })
   reporte_final_medidor: number;
 
+  @Column({ name: 'cama_inicial', type: 'int' })
+  cama_inicial: number;
+
+  @Column({ name: 'cama_final', type: 'int' })
+  cama_final: number;
+
   @Column({
     name: 'fecha_creacion',
     type: 'timestamp',

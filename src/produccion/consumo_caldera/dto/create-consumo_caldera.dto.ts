@@ -20,6 +20,12 @@ export class CreateConsumoCalderaDto {
   @IsNumber()
   reporte_final_medidor?: number;
 
+  @IsNumber()
+  cama_inicial: number;
+
+  @IsNumber()
+  cama_final: number;
+
   @IsDateString()
   fecha_creacion: Date;
 
