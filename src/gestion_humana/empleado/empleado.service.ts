@@ -59,7 +59,7 @@ export class EmpleadoService {
   }
 
   // Retirar un empleado
-  async takeOutEmployee(id: number) {
+  async takeOutEmployee(id: number, fecha_retiro: Date) {
     const empleado = await this.empleadoRepository.findOne({
       where: { id_empleado: id },
     });
@@ -69,6 +69,7 @@ export class EmpleadoService {
     }
 
     empleado.estado_empleado = 'Retirado';
+    empleado.fecha_retiro = fecha_retiro;
 
     await this.empleadoRepository.save(empleado);
 

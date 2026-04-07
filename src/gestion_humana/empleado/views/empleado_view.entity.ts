@@ -3,134 +3,137 @@ import { ViewEntity, ViewColumn } from 'typeorm';
 @ViewEntity({ schema: 'gestion_humana_views', name: 'informe_empleados_view' })
 export class EmpleadoView {
   @ViewColumn()
-  id_empleado: number;
+  id_empleado!: number;
 
   @ViewColumn()
-  tipo_documento: string;
+  tipo_documento!: string;
 
   @ViewColumn()
-  nro_documento: string;
+  nro_documento!: string;
 
   @ViewColumn()
-  ciudad_expedicion: string;
+  ciudad_expedicion!: string;
 
   @ViewColumn()
-  nombre: string;
+  nombre!: string;
 
   @ViewColumn()
-  apellidos: string;
+  apellidos!: string;
 
   @ViewColumn()
-  nickname: string;
+  nickname!: string;
 
   @ViewColumn()
-  ciudad_residencia: string;
+  ciudad_residencia!: string;
 
   @ViewColumn()
-  celular: string;
+  celular!: string;
 
   @ViewColumn()
-  correo: string;
+  correo!: string;
 
   @ViewColumn()
-  cargo: string;
+  cargo!: string;
 
   @ViewColumn()
-  grupo: string;
+  grupo!: string;
 
   @ViewColumn()
-  area: string;
+  area!: string;
 
   @ViewColumn()
-  fecha_ingreso: Date;
+  fecha_ingreso!: Date;
 
   @ViewColumn()
-  salario: number;
+  salario!: number;
 
   @ViewColumn()
-  salario_letras: string;
+  salario_letras!: string;
 
   @ViewColumn()
-  auxilio_transporte: number;
+  auxilio_transporte!: number;
 
   @ViewColumn()
-  auxilio_transporte_letras: string;
+  auxilio_transporte_letras!: string;
 
   @ViewColumn()
-  codigo_sexo: string;
+  codigo_sexo!: string;
 
   @ViewColumn()
-  sexo: string;
+  sexo!: string;
 
   @ViewColumn()
-  tratamiento: string;
+  tratamiento!: string;
 
   @ViewColumn()
-  eps: string;
+  eps!: string;
 
   @ViewColumn()
-  fondo_pension: string;
+  fondo_pension!: string;
 
   @ViewColumn()
-  fondo_cesantias: string;
+  fondo_cesantias!: string;
 
   @ViewColumn()
-  dias_vacaciones: number;
+  dias_vacaciones!: number;
 
   @ViewColumn()
-  fecha_nacimiento: Date;
+  fecha_nacimiento!: Date;
 
   @ViewColumn()
-  estado_civil: string;
+  estado_civil!: string;
 
   @ViewColumn()
-  cantidad_hijos: number;
+  cantidad_hijos!: number;
 
   @ViewColumn()
-  hijos: string;
+  hijos!: string;
 
   @ViewColumn()
-  medio_transporte: string;
+  medio_transporte!: string;
 
   @ViewColumn()
-  id_jefe: number;
+  id_jefe!: number;
 
   @ViewColumn()
-  cedula_jefe: number;
+  cedula_jefe!: number;
 
   @ViewColumn()
-  nombre_jefe: string;
+  nombre_jefe!: string;
 
   @ViewColumn()
-  correo_jefe: string;
+  correo_jefe!: string;
 
   @ViewColumn()
-  es_jefe: boolean;
+  es_jefe!: boolean;
 
   @ViewColumn()
-  id_usuario: number | null;
+  id_usuario?: number | null;
 
   @ViewColumn()
-  roles: {
+  roles?: {
     id_rol: number;
     nombre_rol: string;
   }[];
 
   @ViewColumn()
-  id_jefe_grupo_colaborativo: number | null;
+  id_jefe_grupo_colaborativo?: number | null;
 
   @ViewColumn()
-  jefe_grupo_colaborativo: string | null;
+  jefe_grupo_colaborativo?: string | null;
 
   @ViewColumn()
-  id_grupo_colaborativo: number | null;
+  id_grupo_colaborativo?: number | null;
 
   @ViewColumn()
-  nombre_grupo_colaborativo: string | null;
+  nombre_grupo_colaborativo?: string | null;
 
   @ViewColumn()
-  tipo_contrato: string;
+  tipo_contrato!: string;
 
   @ViewColumn()
-  estado_empleado: string;
+  estado_empleado!: string;
+
+  @ViewColumn()
+  fecha_retiro?: Date | null;
 }
