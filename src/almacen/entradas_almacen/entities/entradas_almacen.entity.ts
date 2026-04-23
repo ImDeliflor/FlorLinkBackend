@@ -3,19 +3,19 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'entradas_almacen', schema: 'abastecimiento' })
 export class EntradasAlmacen {
   @PrimaryGeneratedColumn({ name: 'id_entrada_almacen' })
-  id_entrada_almacen: number;
+  id_entrada_almacen!: number;
 
   @Column({ name: 'tipo_documento', type: 'varchar', length: 10 })
-  tipo_documento: string;
+  tipo_documento!: string;
 
   @Column({ name: 'nro_factura', type: 'varchar', length: 50, nullable: true })
-  nro_factura: string;
+  nro_factura?: string;
 
   @Column({ name: 'fecha_entrada', type: 'timestamp' })
-  fecha_entrada: Date;
+  fecha_entrada!: Date;
 
   @Column({ name: 'cod_producto', type: 'int' })
-  cod_producto: number;
+  cod_producto!: number;
 
   @Column({
     name: 'cantidad',
@@ -27,7 +27,7 @@ export class EntradasAlmacen {
       from: (value: string) => parseFloat(value),
     },
   })
-  cantidad: number;
+  cantidad!: number;
 
   @Column({
     name: 'precio_unidad',
@@ -39,14 +39,14 @@ export class EntradasAlmacen {
       from: (value: string) => parseFloat(value),
     },
   })
-  precio_unidad: number;
+  precio_unidad!: number;
 
   @Column({ name: 'observacion', type: 'varchar', length: 400 })
-  observacion: string;
+  observacion!: string;
 
   @Column({ name: 'created_by', type: 'int' })
-  created_by: number;
+  created_by!: number;
 
   @Column({ name: 'fecha_factura', type: 'timestamp' })
-  fecha_factura: Date;
+  fecha_factura!: Date;
 }

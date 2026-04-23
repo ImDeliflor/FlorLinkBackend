@@ -11,7 +11,7 @@ export class ConsumoCalderaServiceView {
   ) {}
 
   async findAll(): Promise<ConsumoCalderaView[]> {
-    return this.view.find({ order: { fecha_creacion: 'DESC' } });
+    return this.view.find({ order: { fecha_hora_inicio: 'DESC' } });
   }
 
   // Función para traer los registros pendientes por llenar de un usuario

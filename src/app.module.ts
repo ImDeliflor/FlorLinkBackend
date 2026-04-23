@@ -65,6 +65,10 @@ import { RolFamiliarModule } from './tablas_basicas/rol_familiar/rol_familiar.mo
 import { EmpleadoCentroCostosModule } from './gestion_humana/empleado_centro_costos/empleado_centro_costos.module';
 import { ConsumoCalderaModule } from './produccion/consumo_caldera/consumo_caldera.module';
 import { AreaProduccionModule } from './tablas_basicas/area_produccion/area_produccion.module';
+import { TarifaMensualModule } from './parametros/tarifa_mensual/tarifa_mensual.module';
+import { CostosFijosModule } from './parametros/costos_fijos/costos_fijos.module';
+import { TipoTarifaModule } from './tablas_basicas/tipo_tarifa/tipo_tarifa.module';
+import { ConceptoCostoModule } from './tablas_basicas/concepto_costo/concepto_costo.module';
 
 @Module({
   imports: [
@@ -116,6 +120,10 @@ import { AreaProduccionModule } from './tablas_basicas/area_produccion/area_prod
     EmpleadoCentroCostosModule,
     ConsumoCalderaModule,
     AreaProduccionModule,
+    TarifaMensualModule,
+    CostosFijosModule,
+    TipoTarifaModule,
+    ConceptoCostoModule,
   ],
   controllers: [AppController],
   providers: [AppService /*, CalidadEsquejesService*/],

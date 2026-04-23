@@ -15,4 +15,6 @@ export enum Role {
   UsuarioEvalDesempenio = 16,
   UsuarioConsumoCaldera = 17,
   VisualizacionConsumoCaldera = 18,
+  AdminTarifaMensual = 19,
+  AdminCostoFijo = 20,
 }
